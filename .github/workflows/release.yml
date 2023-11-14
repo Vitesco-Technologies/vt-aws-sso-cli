@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: 18
 
-      - name: Build cli
+      - name: Build vt-aws-sso-cli
         run: |
           npm pkg set version=${{steps.release.outputs.tag_name || 'dev'}}
           npm install
