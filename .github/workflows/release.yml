@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   release:
-    runs-on: [self-hosted, cloudplatforms]
+    runs-on: ubuntu-latest
     steps:
       - name: Release Please
         uses: google-github-actions/release-please-action@v3
