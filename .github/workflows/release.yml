@@ -1,0 +1,49 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  id-token: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: [self-hosted, cloudplatforms]
+    steps:
+      - name: Release Please
+        uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          default-branch: main
+          release-type: node
+
+      - name: Git clone the repository
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Build cli
+        run: |
+          npm pkg set version=${{steps.release.outputs.tag_name || 'dev'}}
+          npm install
+          npm run release
+          cd releases/
+          zip aws-sso-win-x64.zip aws-sso-win-x64.exe
+          rm aws-sso-win-x64.exe
+
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: releases/*
+          tag: ${{steps.release.outputs.tag_name}}
+          overwrite: true
+          file_glob: true
