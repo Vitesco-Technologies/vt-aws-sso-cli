@@ -1,3 +1,4 @@
+import restoreCursor from "restore-cursor";
 import autocomplete from "./lib/autocomplete.mjs";
 import { getArgs } from "./lib/cli.mjs";
 import { getAccounts } from "./lib/accounts.mjs";
@@ -5,6 +6,9 @@ import { openConsole, getCredentialsAndWrite } from "./lib/assume.mjs";
 import { getAccountRoles } from "./lib/accounts.mjs";
 import { deleteCache, writeDefaultSessions } from "./lib/config.mjs";
 import { showVersionInfo } from "./lib/version.mjs";
+
+// restore cursor on ctrl+c
+restoreCursor();
 
 async function accountAutocomplete() {
   await getAccounts({ showSpinner: true });
@@ -37,7 +41,9 @@ async function accountRolesAutocomplete(accountId) {
     pageSize: 7,
     source: async (input) => {
       if (input && input.length) {
-        return roles.filter((x) => x.search(new RegExp(input, "i")) !== -1);
+        return roles.filter(
+          (x) => x.name.search(new RegExp(input, "i")) !== -1,
+        );
       } else {
         return roles;
       }
