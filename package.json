@@ -7,24 +7,24 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "(mkdir dist/ || echo '') && esbuild --bundle index.mjs --platform=node --sourcemap=inline --format=cjs --inject:./import-meta-url.js --define:import.meta.url=import_meta_url > dist/aws-sso.js",
     "package": "pkg --debug --no-bytecode --public -t node18-linux-x64,node18-linux-arm64,node18-win-x64,node18-macos-x64,node18-macos-arm64 dist/aws-sso.js --out-path releases",
-    "local": "npm run bundle && node dist/aws-sso.js",
+    "local": "npm run bundle && node --enable-source-maps dist/aws-sso.js",
     "release": "npm run bundle && npm run package"
   },
   "author": "Jakob Niggel",
   "devDependencies": {
-    "@aws-sdk/client-sso": "^3.418.0",
-    "@aws-sdk/client-sso-oidc": "^3.418.0",
+    "@aws-sdk/client-sso": "^3.650.0",
+    "@aws-sdk/client-sso-oidc": "^3.650.0",
     "@isaacs/ttlcache": "^1.4.1",
-    "@types/ini": "^4.1.0",
-    "axios": "^1.5.1",
-    "cli-spinners": "^2.9.1",
-    "commander": "^11.1.0",
-    "esbuild": "^0.20.1",
+    "@types/ini": "^4.1.1",
+    "axios": "^1.7.7",
+    "cli-spinners": "^3.2.0",
+    "commander": "^12.1.0",
+    "esbuild": "^0.23.1",
     "inquirer-autocomplete-standalone": "^0.8.1",
     "nanospinner": "^1.1.0",
     "node-fetch": "^3.3.2",
-    "open": "^9.1.0",
+    "open": "^10.1.0",
     "pkg": "^5.8.1",
-    "restore-cursor": "^5.0.0"
+    "restore-cursor": "^5.1.0"
   }
 }
