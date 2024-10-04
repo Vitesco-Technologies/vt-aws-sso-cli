@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.0](https://github.com/Vitesco-Technologies/vt-aws-sso-cli/compare/v1.1.0...v1.2.0) (2024-10-04)
+
+
+### Features
+
+* add better error handling ([bf56182](https://github.com/Vitesco-Technologies/vt-aws-sso-cli/commit/bf5618248e9f182116cf6dee561482fd7579b363))
+* add option to not override default profile ([7210dca](https://github.com/Vitesco-Technologies/vt-aws-sso-cli/commit/7210dcaf2b15acc0d0525cbc4e27425dfbca4e08))
+
+
+### Bug Fixes
+
+* better cache handling ([e5540f8](https://github.com/Vitesco-Technologies/vt-aws-sso-cli/commit/e5540f84729a395453093ef480137dbd5dc3b54d))
+* remove default profile ([cb01dc3](https://github.com/Vitesco-Technologies/vt-aws-sso-cli/commit/cb01dc355f44400bf49a96e3fa2aa6eca288766e))
+
 ## [1.1.0](https://github.com/Vitesco-Technologies/vt-aws-sso-cli/compare/v1.0.0...v1.1.0) (2024-01-15)
 
 
