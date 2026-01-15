@@ -6,7 +6,6 @@ import { openConsole, getCredentialsAndWrite } from "./lib/assume.mjs";
 import { getAccountRoles } from "./lib/accounts.mjs";
 import { deleteCache, writeDefaultSessions } from "./lib/config.mjs";
 import { showVersionInfo } from "./lib/version.mjs";
-console.log("cli loaded");
 
 // restore cursor on ctrl+c
 restoreCursor();
