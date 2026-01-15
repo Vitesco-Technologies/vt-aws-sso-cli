@@ -1,6 +1,21 @@
 {
-  "default_session": "",
-  "version_url": "https://github.com/api/v3/repos/Vitesco-Technologies/vt-aws-sso-cli/releases/latest",
-  "download_url": "https://github.com/Vitesco-Technologies/vt-aws-sso-cli/releases",
-  "sessions": {}
+  "default_session": "vitesco",
+  "version_url": "https://github.vitesco.io/api/v3/repos/VT-Cloud-Foundation-Core/aws-sso-cli/releases/latest",
+  "download_url": "https://github.vitesco.io/VT-Cloud-Foundation-Core/aws-sso-cli/releases",
+  "sessions": {
+    "sso-session vitesco-dev": {
+      "sso_start_url": "https://vitesco-dev.awsapps.com/start",
+      "sso_region": "eu-west-1",
+      "sso_registration_scopes": "sso:account:access",
+      "vt_accounts_meta_url": "https://cf.vitesco-dev.io/api/aws-accounts/adfs-info",
+      "vt_default_region": "eu-central-1"
+    },
+    "sso-session vitesco": {
+      "sso_start_url": "https://vitesco.awsapps.com/start",
+      "sso_region": "eu-west-1",
+      "sso_registration_scopes": "sso:account:access",
+      "vt_accounts_meta_url": "https://cf.vitesco.io/api/aws-accounts/adfs-info",
+      "vt_default_region": "eu-central-1"
+    }
+  }
 }
