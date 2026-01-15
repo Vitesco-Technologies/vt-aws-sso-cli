@@ -5,7 +5,7 @@
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "(mkdir dist/ || echo '') && esbuild --bundle index.mjs --platform=node --sourcemap=inline --format=cjs --inject:./import-meta-url.js --define:import.meta.url=import_meta_url > dist/aws-sso.js",
+    "bundle": "esbuild --bundle index.mjs --platform=node --sourcemap=inline --format=cjs --inject:./import-meta-url.js --define:import.meta.url=import_meta_url > dist/aws-sso.js",
     "package": "pkg --debug --no-bytecode --public -t node18-linux-x64,node18-linux-arm64,node18-win-x64,node18-macos-x64,node18-macos-arm64 dist/aws-sso.js --out-path releases",
     "local": "npm run bundle && node --enable-source-maps dist/aws-sso.js",
     "release": "npm run bundle && npm run package"
@@ -25,6 +25,7 @@
     "node-fetch": "^3.3.2",
     "open": "^10.1.0",
     "pkg": "^5.8.1",
-    "restore-cursor": "^5.1.0"
+    "restore-cursor": "^5.1.0",
+    "proxy-agent": "^6.5.0"
   }
 }
